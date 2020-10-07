@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Cube</title>
+  <script src="./learn_webgl/jquery.js"></script>
+  <link rel="stylesheet" href="planet.css" />
+</head>
+
+<body>
+  <p>A simple ringed planet with its moons.</p>
+
+  <!--The canvas window for rendering 3D graphics -->
+  <canvas id="my_canvas" class="planet_canvas" width="400" height="400">
+    Please use a browser that supports "canvas"
+  </canvas>
+  <br>
+
+  <!-- An HTML control element that can be used to modify the rendering behavior -->
+  <input type="checkbox" id="my_pause"> Animate<br>
+
+  <!-- Load the JavaScript libraries and data files for the WebGL rendering -->
+  <script src="./learn_webgl/scene_download.js"></script>
+  <script src="./learn_webgl/console_messages.js"></script>
+  <script src="./learn_webgl/glpoint4.js"></script>
+  <script src="./learn_webgl/glvector3.js"></script>
+  <script src="./learn_webgl/glmatrix4x4.js"></script>
+  <script src="./learn_webgl/model_definitions.js"></script>
+  <script src="./learn_webgl/obj_to_arrays.js"></script>
+  <script src="./learn_webgl/model_arrays_gpu.js"></script>
+  <script src="./learn_webgl/render_uniform_color.js"></script>
+  <script src="./learn_webgl/model_to_gpu.js"></script>
+  <script src="./planet_scene.js"></script>
+  <script src="./planet_events.js"></script>
+
+  <!--
+    Create an instance of the SceneDownload class, and start the WebGL program.
+    We do this here to pass the canvas ID into the javascript code.
+  -->
+  <script>
+    let my_models = ["./planet_scene.obj"];
+    let my_shaders = ["./learn_webgl/uniform_color.vert", "./learn_webgl/uniform_color.frag"];
+    window.my_program = new SceneDownload("my", "my_canvas", "PlanetScene", my_models, my_shaders);
+  </script>
+
+</body>
+</html>
