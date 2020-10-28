@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- Example LearnWebGL HTML file, by Wayne Brown, Fall 2015 -->
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Triangle to Scale</title>
+  <script src="./learnWebGL/jquery.js"></script>
+  <link rel="stylesheet" href="simple_triangle.css" />
+</head>
+
+<body>
+  <p>Click on the canvas to enlarge the triangle.</p>
+
+  <!--The canvas window for rendering 3D graphics -->
+  <canvas id="my_canvas" class="triangle_canvas" width="300" height="300">
+    Please use a browser that supports "canvas"
+  </canvas>
+  <br>
+
+  <!-- Load the JavaScript libraries and data files for the WebGL rendering -->
+  <script src="./learnWebGL/scene_download.js"></script>
+  <script src="./learnWebGL/console_messages.js"></script>
+  <script src="./learnWebGL/glpoint4.js"></script>
+  <script src="./learnWebGL/glvector3.js"></script>
+  <script src="./learnWebGL/glmatrix4x4.js"></script>
+  <script src="./learnWebGL/model_definitions.js"></script>
+  <script src="./learnWebGL/obj_to_arrays.js"></script>
+  <script src="./learnWebGL/model_arrays_gpu.js"></script>
+  <script src="./learnWebGL/render_uniform_color.js"></script>
+  <script src="./learnWebGL/model_to_gpu.js"></script>
+  <script src="./learnWebGL/simple_model_render.js"></script>
+  <script src="./triangle_events.js"></script>
+  <script src="./triangle_model.js"></script>
+  <script src="./triangle_scene.js"></script>
+
+  <input type="button" id="enlarge_button" value="Enlarge">
+
+  <!--
+    Create an instance of the SceneDownload class, and start the WebGL program.
+    We do this here to pass the canvas ID into the javascript code.
+  -->
+  <script>
+    let my_models = ["./axes.obj"];
+    let my_shaders = ["./learnWebGL/uniform_color.vert", "./learnWebGL/uniform_color.frag"];
+    window.my_program = new SceneDownload("my", "my_canvas", "TriangleScene", my_models, my_shaders);
+  </script>
+
+</body>
+</html>
