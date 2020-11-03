@@ -73,14 +73,14 @@ class GlMatrix4x4 {
   static T1 = GlMatrix4x4.create();
 
   // Temporary vectors
-  // static V = new GlVector3();
+  static V = new GlVector3();
   static u = GlVector3.create();
   static v = GlVector3.create();
   static n = GlVector3.create();
   static center = GlVector3.create();
   static eye = GlVector3.create();
   static up = GlVector3.create();
-  static v2 = GlVector3.create();
+  static v3 = GlVector3.create();
   static axis_of_rotation = GlVector3.create();
 
   // Temporary point
@@ -190,7 +190,8 @@ class GlMatrix4x4 {
 
     // v can't change during the operation. If r and v are the same, make a copy of v
     if (r == v) {
-      v = V.copy(v3, v);
+      // v = GlMatrix4x4.copy(GlMatrix4x4.v3, v);
+      v = GlVector3.copy(GlMatrix4x4.V, v);
     }
 
     r[0] = M[0] * v[0] + M[4] * v[1] + M[8]  * v[2];
@@ -207,12 +208,12 @@ class GlMatrix4x4 {
   static multiplyP4(r, M, p) {
 
     // p can't change during the operation, so make a copy of p.
-    P.copy(p4, p);
+    GlMatrix4x4.copy(GlMatrix4x4.p4, p);
 
-    r[0] = M[0] * p4[0] + M[4] * p4[1] + M[8]  * p4[2] + M[12] * p4[3];
-    r[1] = M[1] * p4[0] + M[5] * p4[1] + M[9]  * p4[2] + M[13] * p4[3];
-    r[2] = M[2] * p4[0] + M[6] * p4[1] + M[10] * p4[2] + M[14] * p4[3];
-    r[3] = M[3] * p4[0] + M[7] * p4[1] + M[11] * p4[2] + M[15] * p4[3];
+    r[0] = M[0] * GlMatrix4x4.p4[0] + M[4] * GlMatrix4x4.p4[1] + M[8]  * GlMatrix4x4.p4[2] + M[12] * GlMatrix4x4.p4[3];
+    r[1] = M[1] * GlMatrix4x4.p4[0] + M[5] * GlMatrix4x4.p4[1] + M[9]  * GlMatrix4x4.p4[2] + M[13] * GlMatrix4x4.p4[3];
+    r[2] = M[2] * GlMatrix4x4.p4[0] + M[6] * GlMatrix4x4.p4[1] + M[10] * GlMatrix4x4.p4[2] + M[14] * GlMatrix4x4.p4[3];
+    r[3] = M[3] * GlMatrix4x4.p4[0] + M[7] * GlMatrix4x4.p4[1] + M[11] * GlMatrix4x4.p4[2] + M[15] * GlMatrix4x4.p4[3];
   }
 
   /** -----------------------------------------------------------------

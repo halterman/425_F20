@@ -98,6 +98,8 @@ class ModelToGpu {
 
       // Copy the Float32Array of an object buffer on the GPU
       this.triangles_vertex_buffer_id = _createBufferObject(gl, vertices3);
+      model.buffer_id = this.triangles_vertex_buffer_id;
+      model.gl = gl;
     }
   }
 }

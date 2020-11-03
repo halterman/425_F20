@@ -151,12 +151,26 @@ class TriangleEvents {
     let M = GlMatrix4x4.create();
     GlMatrix4x4.setIdentity(M);
 
-    console.log(this.scene.tri.triangles[0].vertices);
-    //this.scene.tri.triangles[0].vertices[0] = [0, 0, 0];
-    console.log(this.scene.tri.triangles[0].vertices);
+    let triangle = this.scene.tri;
 
+    // Compute the center of the points
+    // Put your code here
+
+    // Move center to origin, scale, then move back
+    // Put your code here
+
+    // Multiply the transformation matrices together to form a single
+    // transformation matrix
+    // Put your code here
+
+    // Print the tranformation matrix
+    console.log("M = " + M);
+
+    triangle.transform(M);
+    triangle.loadGPU();
     this.scene.render();
   }
+
 
   //------------------------------------------------------------------------------
   draw_edges_status(event) {

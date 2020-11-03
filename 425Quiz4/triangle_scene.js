@@ -113,7 +113,9 @@ class TriangleScene {
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // Create a simple model of a triangle.
-    this.#triangle_model = new TraingleModel();
+    this.#triangle_model = new TriangleModel([[0.2, 0.2, 0.15], 
+                                              [0.7, 0.3, 0.1], 
+                                              [0.7, 0.35, 0.6]]);
     this.#triangle_color = new Float32Array([1.0, 0.0, 0.0, 1.0]);
 
     // Create GPU buffer objects for the model
